@@ -12,7 +12,7 @@ class Header extends Component {
       loadingHeader: false,
     };
 
-    /* this.namePerson = this.namePerson.bind(this); */
+    this.namePerson = this.namePerson.bind(this);
   }
 
   componentDidMount() {

@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Header from '../components/Header';
+import Loading from '../ferramentas/Loading';
 
 class Search extends Component {
   constructor() {
     super();
 
     this.onInputChange = this.onInputChange.bind(this);
+    this.searchButtonApi = this.searchButtonApi.bind(this);
 
     this.state = {
       isDisabled: true,
       inputSearch: '',
+      loading: false,
+      nameArtist: '',
+      albums: [],
     };
   }
 
@@ -28,31 +35,75 @@ class Search extends Component {
     }
   }
 
+  async searchButtonApi() {
+    const { inputSearch } = this.state;
+    this.setState({ inputSearch: '', loading: true });
+
+    const searchAlbum = await searchAlbumsAPI(inputSearch);
+
+    if (searchAlbum.length === 0) {
+      this.setState({
+        nameArtist: 'Nenhum álbum foi encontrado',
+        loading: false,
+        albums: [],
+      });
+    } else {
+      this.setState({
+        loading: false,
+        nameArtist: `Resultado de álbuns de: ${inputSearch}.`,
+        albums: searchAlbum,
+      });
+    }
+  }
+
   render() {
-    const { isDisabled, inputSearch } = this.state;
+    const { isDisabled, inputSearch, loading, nameArtist, albums } = this.state;
     return (
       <div>
         <Header />
-        <div data-testid="page-search">
-          <form action="">
+        {loading === true
+          ? <Loading />
+          : (
+            <div data-testid="page-search">
+              <form action="">
 
-            <input
-              type="text"
-              data-testid="search-artist-input"
-              name="inputSearch"
-              value={ inputSearch }
-              onChange={ this.onInputChange }
-            />
+                <input
+                  type="text"
+                  data-testid="search-artist-input"
+                  name="inputSearch"
+                  value={ inputSearch }
+                  onChange={ this.onInputChange }
+                />
 
-            <button
-              type="button"
-              data-testid="search-artist-button"
-              disabled={ isDisabled }
-            >
-              Pesquisa
-            </button>
+                <button
+                  type="button"
+                  data-testid="search-artist-button"
+                  disabled={ isDisabled }
+                  onClick={ this.searchButtonApi }
+                >
+                  Pesquisa
+                </button>
+              </form>
+            </div>)}
 
-          </form>
+        <div>
+          <h3>{nameArtist}</h3>
+          <ul>
+            {albums.map((info) => (
+              <li key="info.artistId">
+                <p>{info.artistName}</p>
+                <h4>{info.collectionName}</h4>
+                <p>{info.collectionPrice}</p>
+                <img src={ info.artworkUrl100 } alt={ info.collectionName } />
+                <Link
+                  data-testid={ `link-to-album-${info.collectionId}` }
+                  to={ `/album/${info.collectionId}` }
+                >
+                  Album
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 

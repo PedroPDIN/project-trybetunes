@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 class MusicCard extends Component {
   render() {
     const { musics, preview } = this.props;
-    console.log(musics);
     return (
       <div>
         <p>{musics}</p>

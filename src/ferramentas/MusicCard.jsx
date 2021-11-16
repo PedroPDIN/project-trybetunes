@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class MusicCard extends Component {
@@ -8,11 +8,24 @@ class MusicCard extends Component {
     super();
 
     this.fetchSongs = this.fetchSongs.bind(this);
+    this.fetchFavorite = this.fetchFavorite.bind(this);
 
     this.state = {
       checkedSongs: false,
       loading: false,
     };
+  }
+
+  componentDidMount() {
+    this.fetchFavorite();
+  }
+
+  async fetchFavorite() {
+    this.setState({ loading: true });
+    const favorite = await getFavoriteSongs();
+    const { trackId } = this.props;
+    const isFavSongs = favorite.some((value) => value.trackId === trackId);
+    this.setState({ checkedSongs: isFavSongs, loading: false });
   }
 
   async fetchSongs(album) {
@@ -37,7 +50,7 @@ class MusicCard extends Component {
           O seu navegador não suporta o elemento
           <code>audio</code>
         </audio>
-        {loading === true
+        {loading
           ? <Loading />
           : (
             <input

@@ -29,14 +29,16 @@ class MusicCard extends Component {
   }
 
   async fetchSongs(album) {
+    const { fetchFavorite } = this.props;
     this.setState({ loading: true });
     const { checkedSongs } = this.state;
     if (checkedSongs) {
       await removeSong(album);
-      this.setState({ checkedSongs: false, loading: false });
+      //
+      this.setState({ checkedSongs: false, loading: false }, fetchFavorite);
     } else {
       await addSong(album);
-      this.setState({ checkedSongs: true, loading: false });
+      this.setState({ checkedSongs: true, loading: false }, fetchFavorite);
     }
   }
 
@@ -59,13 +61,17 @@ class MusicCard extends Component {
         {loading
           ? <Loading />
           : (
-            <input
-              type="checkbox"
-              data-testid={ `checkbox-music-${trackId}` }
-              checked={ checkedSongs }
-              onClick={ () => this.fetchSongs(listAlbums) }
-            />)}
-
+            <label htmlFor="fav">
+              Favorita
+              <input
+                id="fav"
+                type="checkbox"
+                data-testid={ `checkbox-music-${trackId}` }
+                checked={ checkedSongs }
+                onClick={ () => this.fetchSongs(listAlbums) }
+              />
+            </label>
+          )}
       </div>
     );
   }
@@ -75,6 +81,7 @@ MusicCard.propTypes = {
   musics: PropTypes.string.isRequired,
   preview: PropTypes.string.isRequired,
   trackId: PropTypes.number.isRequired,
+  fetchFavorite: PropTypes.func.isRequired,
   listAlbums: PropTypes.arrayOf(PropTypes.shape({
     artistId: PropTypes.number,
   })).isRequired,

@@ -46,7 +46,13 @@ class Album extends Component {
           <ul>
             {listAlbums.map((music) => (
               <li key="music.artistId">
-                <MusicCard musics={ music.trackName } preview={ music.previewUrl } />
+                {console.log(music)}
+                <MusicCard
+                  musics={ music.trackName }
+                  preview={ music.previewUrl }
+                  trackId={ music.trackId }
+                  listAlbums={ music }
+                />
               </li>
             ))}
           </ul>

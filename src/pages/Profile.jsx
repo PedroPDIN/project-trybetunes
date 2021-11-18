@@ -43,17 +43,17 @@ class Profile extends Component {
                   alt={ `${name}' perfil` }
                 />
 
-                <h3>Nome</h3>
-                <h3>
+                <strong>Nome</strong>
+                <p>
                   {name}
-                </h3>
+                </p>
 
-                <p>email</p>
+                <strong>Email</strong>
                 <p>
                   {email}
                 </p>
 
-                <p>descrição</p>
+                <strong>Descrição</strong>
                 <p>
                   {description}
                 </p>

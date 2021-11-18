@@ -4,7 +4,10 @@ class Loading extends Component {
   render() {
     return (
       <div>
-        <span>Carregando...</span>
+        <span>
+          Carregando...
+          <progress />
+        </span>
       </div>
     );
   }

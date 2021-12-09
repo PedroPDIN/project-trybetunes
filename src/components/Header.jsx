@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from '../ferramentas/Loading';
+import image from '../css/images/logo.png';
+
+import '../css/Header.css';
 
 class Header extends Component {
   constructor() {
@@ -31,12 +34,37 @@ class Header extends Component {
     }
     return (
       <header data-testid="header-component">
-        <h1 data-testid="header-user-name">{nameUser}</h1>
+        <img src={ image } alt="logo" />
+        <h1 data-testid="header-user-name" className="user">{ nameUser }</h1>
 
-        <nav>
-          <Link to="/search" data-testid="link-to-search">Pesquisa</Link>
-          <Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link>
-          <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+        <nav className="nav">
+          <NavLink
+            exact
+            to="/search"
+            data-testid="link-to-search"
+            className="links"
+            activeClassName="selected"
+          >
+            Pesquisa
+          </NavLink>
+
+          <NavLink
+            to="/favorites"
+            data-testid="link-to-favorites"
+            className="links"
+            activeClassName="selected"
+          >
+            Favoritas
+          </NavLink>
+
+          <NavLink
+            to="/profile"
+            data-testid="link-to-profile"
+            className="links"
+            activeClassName="selected"
+          >
+            Perfil
+          </NavLink>
         </nav>
 
       </header>

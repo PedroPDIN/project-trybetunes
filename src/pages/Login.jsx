@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../ferramentas/Loading';
+import logo from '../css/images/logo.png';
 
 class Login extends Component {
   constructor() {
@@ -51,11 +52,13 @@ class Login extends Component {
       return <Redirect to="/search" />;
     }
     return (
-      <div data-testid="page-login">
-        <form action="">
+      <div data-testid="page-login" className="login">
+        <form action="" className="formLogin">
+          <img src={ logo } alt="logo" />
           <label htmlFor="login-name-input">
-            Nome
             <input
+              placeholder="Nome"
+              className="inputName"
               type="text"
               data-testid="login-name-input"
               name="inputName"
@@ -65,6 +68,7 @@ class Login extends Component {
           </label>
 
           <button
+            className="buttonLogin"
             type="button"
             disabled={ isDisabled }
             data-testid="login-submit-button"

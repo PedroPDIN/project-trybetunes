@@ -4,6 +4,8 @@ import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Header from '../components/Header';
 import Loading from '../ferramentas/Loading';
 
+import '../css/Search.css';
+
 class Search extends Component {
   constructor() {
     super();
@@ -65,9 +67,10 @@ class Search extends Component {
           ? <Loading />
           : (
             <div data-testid="page-search">
-              <form action="">
+              <form action="" className="form">
 
                 <input
+                  className="inputSearch"
                   type="text"
                   data-testid="search-artist-input"
                   name="inputSearch"
@@ -76,6 +79,7 @@ class Search extends Component {
                 />
 
                 <button
+                  className="button"
                   type="button"
                   data-testid="search-artist-button"
                   disabled={ isDisabled }

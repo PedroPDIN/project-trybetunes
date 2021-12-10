@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import '../css/Loading.css';
 
 class Loading extends Component {
   render() {
     return (
       <div>
-        <span>
+        <span className="span">
           Carregando...
           <progress />
         </span>

@@ -4,6 +4,8 @@ import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from '../ferramentas/Loading';
 import MusicCard from '../ferramentas/MusicCard';
 
+import '../css/Favorites.css';
+
 class Favorites extends Component {
   constructor() {
     super();
@@ -35,10 +37,16 @@ class Favorites extends Component {
           : (
             <div>
               <Header />
-              <div data-testid="page-favorites">
+              <div
+                data-testid="page-favorites"
+                className="conteiner-favorite"
+              >
                 <ul>
                   {saveFavorite.map((music) => (
-                    <li key="music.artistId">
+                    <li
+                      key="music.artistId"
+                      className="li-favorite"
+                    >
                       <MusicCard
                         musics={ music.trackName }
                         preview={ music.previewUrl }

@@ -1,0 +1,9 @@
+.conteiner-favorite {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.li-favorite {
+  list-style-type: none;
+}

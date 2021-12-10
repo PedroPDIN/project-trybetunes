@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import logoFound from '../css/images/logo.png';
+import '../css/NotFound.css';
 
 class NotFound extends Component {
   render() {
     return (
-      <div data-testid="page-not-found">foud</div>
+      <div
+        data-testid="page-not-found"
+        className="found"
+      >
+        <img src={ logoFound } alt="logo" />
+        <p>Ops! A página que você esta procurando não foi encontrada.</p>
+      </div>
     );
   }
 }

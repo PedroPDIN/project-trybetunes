@@ -9,7 +9,7 @@ class NotFound extends Component {
         data-testid="page-not-found"
         className="found"
       >
-        <img src={logoFound} alt="logo" className="img-notfound" />
+        <img src={ logoFound } alt="logo" className="img-notfound" />
         <p
           className="p-notfound"
         >

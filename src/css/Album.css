@@ -1,0 +1,43 @@
+.album {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.h2-album {
+  color: #023031;
+  font-family: sans-serif;
+  left: 200px;
+  position: absolute;
+  top: 242px;
+  width: 470px;
+}
+
+.h3-album {
+  color: #023031;
+  font-family: sans-serif;
+  left: 200px;
+  position: absolute;
+  top: 330px;
+  width: 470px;
+}
+
+.li-album {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  padding-bottom: 10px;
+  padding-top: 30px;
+  width: 1900px;
+}
+
+.conteiner-musics {
+  align-items: center;
+  border-bottom: solid #036b52 2px;
+  border-top: solid #036b52 2px;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  width: 700px;
+}

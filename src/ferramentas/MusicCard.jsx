@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
+import '../css/Album.css';
+
 class MusicCard extends Component {
   constructor() {
     super();
@@ -46,8 +48,8 @@ class MusicCard extends Component {
     const { musics, preview, trackId, listAlbums } = this.props;
     const { checkedSongs, loading } = this.state;
     return (
-      <div>
-        <p>{musics}</p>
+      <div className="conteiner-musics">
+        <p className="name-musics">{musics}</p>
 
         <audio
           data-testid="audio-component"
@@ -62,7 +64,6 @@ class MusicCard extends Component {
           ? <Loading />
           : (
             <label htmlFor="fav">
-              Favorita
               <input
                 id="fav"
                 type="checkbox"
@@ -70,6 +71,7 @@ class MusicCard extends Component {
                 checked={ checkedSongs }
                 onClick={ () => this.fetchSongs(listAlbums) }
               />
+              Favorita
             </label>
           )}
       </div>

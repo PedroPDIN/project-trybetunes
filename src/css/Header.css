@@ -62,4 +62,5 @@ img {
 .selected {
   background-color: #036b52;
   color: #f0f2f5;
+  cursor: pointer;
 }

@@ -52,7 +52,7 @@ class Search extends Component {
     } else {
       this.setState({
         loading: false,
-        nameArtist: `Resultado de álbuns de ${inputSearch}:`,
+        nameArtist: `Resultado de álbuns de: ${inputSearch}`,
         albums: searchAlbum,
       });
     }

@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../ferramentas/MusicCard';
 
+import '../css/Album.css';
+
 class Album extends Component {
   constructor() {
     super();
@@ -40,12 +42,23 @@ class Album extends Component {
     return (
       <div>
         <Header />
-        <div data-testid="page-album">
-          <h2 data-testid="artist-name">{artistName}</h2>
-          <h3 data-testid="album-name">{collectionName}</h3>
+        <div data-testid="page-album" className="album">
+          <h2
+            data-testid="artist-name"
+            className="h2-album"
+          >
+
+            {artistName}
+          </h2>
+          <h3
+            data-testid="album-name"
+            className="h3-album"
+          >
+            {collectionName}
+          </h3>
           <ul>
             {listAlbums.map((music) => (
-              <li key="music.artistId">
+              <li key="music.artistId" className="li-album">
                 <MusicCard
                   musics={ music.trackName }
                   preview={ music.previewUrl }

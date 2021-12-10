@@ -81,6 +81,7 @@
 .link-search {
   background-color: #036b52;
   color: rgb(245, 238, 238);
+  cursor: pointer;
   font-family: sans-serif;
   font-size: 20px;
   padding: 6px 10px 7px 9px;

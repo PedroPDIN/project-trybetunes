@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../ferramentas/Loading';
-import logo from '../css/images/logo.png';
+import logo from '../css/image/logo.png';
 
 class Login extends Component {
   constructor() {

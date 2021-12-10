@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logoFound from '../css/images/logo.png';
+import logoFound from '../css/image/logo.png';
 import '../css/NotFound.css';
 
 class NotFound extends Component {
@@ -9,7 +9,7 @@ class NotFound extends Component {
         data-testid="page-not-found"
         className="found"
       >
-        <img src={ logoFound } alt="logo" />
+        <img src={ logoFound } alt="logo" className="img-notfound" />
         <p>Ops! A página que você esta procurando não foi encontrada.</p>
       </div>
     );

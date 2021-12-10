@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from '../ferramentas/Loading';
-import image from '../css/images/logo.png';
+import image from '../css/image/logo.png';
 
 import '../css/Header.css';
 

@@ -52,7 +52,7 @@ class Search extends Component {
     } else {
       this.setState({
         loading: false,
-        nameArtist: `Resultado de álbuns de: ${inputSearch}.`,
+        nameArtist: `Resultado de álbuns de ${inputSearch}:`,
         albums: searchAlbum,
       });
     }
@@ -91,17 +91,21 @@ class Search extends Component {
             </div>)}
 
         <div>
-          <h3>{nameArtist}</h3>
-          <ul>
+          <h3 className="h3-search">{nameArtist}</h3>
+          <ul className="ul-search">
             {albums.map((info) => (
-              <li key="info.artistId">
-                <p>{info.artistName}</p>
+              <li key="info.artistId" className="li-search">
+                <img
+                  src={ info.artworkUrl100 }
+                  alt={ info.collectionName }
+                />
                 <h4>{info.collectionName}</h4>
-                <p>{info.collectionPrice}</p>
-                <img src={ info.artworkUrl100 } alt={ info.collectionName } />
+                <p className="p-search">{info.artistName}</p>
+                <p className="price-search">{info.collectionPrice}</p>
                 <Link
                   data-testid={ `link-to-album-${info.collectionId}` }
                   to={ `/album/${info.collectionId}` }
+                  className="link-search"
                 >
                   Album
                 </Link>

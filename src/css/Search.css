@@ -33,3 +33,56 @@
   top: 220px;
   width: 134px;
 }
+
+.h3-search {
+  color: #036b52;
+  font-family: sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  height: 33px;
+  left: 430px;
+  line-height: 25px;
+  position: absolute;
+  top: 300px;
+  width: 447px;
+}
+
+.ul-search {
+  background-color: #f0f2f5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  top: 390px;
+}
+
+.li-search {
+  align-content: stretch;
+  align-items: center;
+  background-color: white;
+  border: solid #036b52 2px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px 10px 9px 9px;
+  padding: 50px 10px 50px 30px;
+}
+
+.p-search {
+  margin-top: -10px;
+}
+
+.price-search {
+  margin-top: -10px;
+}
+
+.link-search {
+  background-color: #036b52;
+  color: #d4d5d8;
+  font-family: sans-serif;
+  font-size: 20px;
+  padding: 6px 10px 7px 9px;
+  text-decoration: none;
+}

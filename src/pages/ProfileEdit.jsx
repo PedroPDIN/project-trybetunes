@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import { getUser, updateUser } from '../services/userAPI';
 import Loading from '../ferramentas/Loading';
 
+import '../css/ProfileEdit.css';
+
 class ProfileEdit extends Component {
   constructor() {
     super();
@@ -97,11 +99,31 @@ class ProfileEdit extends Component {
           {loading === true
             ? <Loading />
             : (
-              <form action="">
-                <label htmlFor="edit-input-name">
+              <form action="" className="form-profileEdit">
+
+                <label
+                  htmlFor="edit-input-image"
+                  className="label-profileEdit"
+                >
+                  Imagem:
+                  <input
+                    data-testid="edit-input-image"
+                    type="text"
+                    className="input-profileEdit"
+                    name="image"
+                    value={ image }
+                    onChange={ this.onInputChange }
+                  />
+                </label>
+
+                <label
+                  htmlFor="edit-input-name"
+                  className="label-profileEdit"
+                >
                   Nome:
                   <input
                     type="text"
+                    className="input-profileEdit"
                     data-testid="edit-input-name"
                     name="name"
                     value={ name }
@@ -109,10 +131,14 @@ class ProfileEdit extends Component {
                   />
                 </label>
 
-                <label htmlFor="edit-input-email">
+                <label
+                  htmlFor="edit-input-email"
+                  className="label-profileEdit"
+                >
                   Email:
                   <input
                     type="text"
+                    className="input-profileEdit"
                     data-testid="edit-input-email"
                     name="email"
                     value={ email }
@@ -120,9 +146,15 @@ class ProfileEdit extends Component {
                   />
 
                 </label>
-                <label htmlFor="edit-input-description">
+                <label
+                  htmlFor="edit-input-description"
+                  className="label-profileEdit"
+                >
                   Descrição:
                   <textarea
+                    rows="10"
+                    cols="50"
+                    className="textarea-profileEdit"
                     data-testid="edit-input-description"
                     id="edit-input-description"
                     name="description"
@@ -131,19 +163,9 @@ class ProfileEdit extends Component {
                   />
                 </label>
 
-                <label htmlFor="edit-input-image">
-                  Imagem:
-                  <input
-                    data-testid="edit-input-image"
-                    type="text"
-                    name="image"
-                    value={ image }
-                    onChange={ this.onInputChange }
-                  />
-                </label>
-
                 <button
                   type="button"
+                  className="button-profileEdit"
                   data-testid="edit-button-save"
                   disabled={ isDisabled }
                   onClick={ this.fetchUpdateUser }

@@ -1,0 +1,50 @@
+.form-profileEdit {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 530px;
+  margin-top: -15px;
+}
+
+.label-profileEdit {
+  color: #036b52;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  padding: 10px;
+}
+
+.input-profileEdit {
+  align-items: center;
+  background: #f0f2f5;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  padding: 7px;
+}
+
+.textarea-profileEdit {
+  align-items: center;
+  background: #f0f2f5;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.button-profileEdit {
+  align-items: center;
+  background: #003be5;
+  border-radius: 2px;
+  color: white;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-grow: 0;
+  font-size: 15px;
+  justify-content: center;
+  padding: 8px 32px;
+}

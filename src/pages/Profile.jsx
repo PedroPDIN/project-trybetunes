@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import { getUser } from '../services/userAPI';
 import Loading from '../ferramentas/Loading';
 
+import '../css/Profile.css';
+
 class Profile extends Component {
   constructor() {
     super();
@@ -36,29 +38,35 @@ class Profile extends Component {
           {loading === true
             ? <Loading />
             : (
-              <div>
+              <div className="conteiner-profile">
                 <img
                   data-testid="profile-image"
                   src={ image }
                   alt={ `${name}' perfil` }
+                  className="img-profile"
                 />
 
-                <strong>Nome</strong>
-                <p>
+                <strong className="strong-info">Nome</strong>
+                <p className="info-user">
                   {name}
                 </p>
 
-                <strong>Email</strong>
-                <p>
+                <strong className="strong-info">Email</strong>
+                <p className="info-user">
                   {email}
                 </p>
 
-                <strong>Descrição</strong>
-                <p>
+                <strong className="strong-info">Descrição</strong>
+                <p className="info-user">
                   {description}
                 </p>
 
-                <Link to="/profile/edit">Editar perfil</Link>
+                <Link
+                  to="/profile/edit"
+                  className="link-profile"
+                >
+                  Editar perfil
+                </Link>
               </div>
             )}
         </div>
